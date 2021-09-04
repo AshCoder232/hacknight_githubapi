@@ -4,7 +4,7 @@ import random
 import os
 # Create your views here.
 
-TOKEN = os.environ.get('GITHUB_ACCESS_TOKEN', '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')
+TOKEN = os.environ.get('GITHUB_ACCESS_TOKEN')
 
 def index(request):
     selected_repos = []
