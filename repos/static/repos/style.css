@@ -46,6 +46,7 @@ body{
 .info{
     color: white;
     font-size: 1.3rem;
+    word-wrap:break-word;
 }
 .info b{
     font-family: "Roboto",sans-serif;
@@ -58,17 +59,11 @@ body{
 }
 .info a{
     color:whitesmoke;
-    text-decoration: none;
 }
-.info ul{
-    text-align: center;
+
+.error {
+    color: red;
+    margin: 5px;
+    margin-top: 20px;
 }
-/* .info ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-.info ul li{
-    list-style: none;
-    padding: 7px;
-}
+
