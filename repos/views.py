@@ -18,6 +18,8 @@ def index(request):
             for i in range(0, 10):
                 r = requests.get(random_repos[i]['url'])
                 d = r.json()
+                if (r.status_code != 200):
+                    break
                 if (d['stargazers_count'] >= 10):
                     random_repos[i]['stars'] = d['stargazers_count']
                     random_repos[i]['watchers'] = d['watchers_count']

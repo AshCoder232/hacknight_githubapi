@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="{% static 'repos/style.css' %}" rel="stylesheet">
 
     <title>Random Repo Generator!</title>
 </head>
@@ -28,36 +29,24 @@
             Click Here!
         </button></br>
         {% if error %}
-            <p><b>{{ error }}</b></p>
+            <p class="error"><b>{{ error }}</b></p>
         {% endif %}
     </section>
 
     {% if repo %}
-    <section class="user-info">
-        <div>
-            <p><b>Repository:</b> <a id="fname" href={{ repo.html_url }}>{{ repo.name }}</a></p>
-            <p><b>Owner:</b> <a id="fname" href={{ repo..owner.html_url }}>{{ repo.owner.login }}</a></p>
+        <div class="info">
+            <p><b>Repository:</b> <a href={{ repo.html_url }}>{{ repo.name }}</a></p>
+            <p><b>Owner:</b> <a href={{ repo.owner.html_url }}>{{ repo.owner.login }}</a></p>
             <p><b>Description: </b></p>
-            <P>{{ repo.description }}</P>
+            <p>{{ repo.description }}</p>
             <p><b>Stars Count:</b> {{ repo.stars }}</p>
             <p><b>Watchers Count:</b> {{ repo.watchers }}</p>
             <p><b>Forks Count:</b> {{ repo.forks }}</p>
-            <p><b>Languages:</b></p>
-            <ul>
-                {% for lang in repo.languages %}
-                <li>{{ lang }}</li>
-                {% endfor %}
-            </ul>
+            <p><b>Languages:</b> {{ repo.languages|join:" , " }}</p>
 
         </div>
-    </section>
     {% endif %}
 
-    <section class="details">
-
-
-
-    </section>
     <script src="{% static 'repos/script.js' %}"></script>
 </body>
 
