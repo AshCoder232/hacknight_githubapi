@@ -11,7 +11,7 @@ def index(request):
     while (len(selected_repos) == 0):
         random_page = random.randint(0, 100000)
         response = requests.get('https://api.github.com/repositories', 
-        params={'since': random_page, 'access_token': TOKEN})
+        params={'since': random_page}, headers={'Authorization': f"token {TOKEN}"})
         data = response.json()
         if (response.status_code == 200):
             random_repos = random.sample(data, 10)
@@ -35,6 +35,4 @@ def index(request):
     else:
         error = ""
         repo = selected_repos[0]
-    #print(repo)
-    print(TOKEN)
     return render(request, "repos/index.html", {'repo': repo, 'error': error})
