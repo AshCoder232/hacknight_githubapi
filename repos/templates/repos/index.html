@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<head>Random Repo</head>
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -17,57 +17,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <script src="template/script.js" defer></script>
 
     <title>Random Repo Generator!</title>
 </head>
 
 <body>
-    <h1>Random Repo</h1>
-</body> 
     <h1 class="heading">Random Repo Generator</h1>
     <section class="intro">
         <button class="repogen">
             Click Here!
         </button></br>
-
+        {% if error %}
+            <p><b>{{ error }}</b></p>
+        {% endif %}
     </section>
 
+    {% if repo %}
     <section class="user-info">
         <div>
-            <form action="">
-                <label for="fname">Repo name:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-                <label for="country">Repo url:</label>
-                <input type="text" id="country" name="country" readonly><br><br>
-                <label for="fname">Owner Username:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-                <label for="fname">Owner Link:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-                <label for="fname">Stars Count:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-                <label for="fname">Watchers Count:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-                <label for="fname">Forks Count:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-                <label for="fname">Languages:</label>
-                <input type="text" id="fname" name="fname" readonly><br><br>
-
-
-            </form>
-
+            <p><b>Repository:</b> <a id="fname" href={{ repo.html_url }}>{{ repo.name }}</a></p>
+            <p><b>Owner:</b> <a id="fname" href={{ repo..owner.html_url }}>{{ repo.owner.login }}</a></p>
+            <p><b>Description: </b></p>
+            <P>{{ repo.description }}</P>
+            <p><b>Stars Count:</b> {{ repo.stars }}</p>
+            <p><b>Watchers Count:</b> {{ repo.watchers }}</p>
+            <p><b>Forks Count:</b> {{ repo.forks }}</p>
+            <p><b>Languages:</b></p>
+            <ul>
+                {% for lang in repo.languages %}
+                <li>{{ lang }}</li>
+                {% endfor %}
+            </ul>
 
         </div>
     </section>
+    {% endif %}
 
     <section class="details">
 
 
 
     </section>
-    <!--JS -->
-    <script src="template/app.js"></script>
-
+    <script src="{% static 'repos/script.js' %}"></script>
 </body>
 
 </html> 
