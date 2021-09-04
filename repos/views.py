@@ -1,13 +1,17 @@
 from django.shortcuts import render
 import requests
 import random
+import os
 # Create your views here.
+
+TOKEN = os.environ.get('GITHUB_ACCESS_TOKEN')
 
 def index(request):
     selected_repos = []
     while (len(selected_repos) == 0):
         random_page = random.randint(0, 100000)
-        response = requests.get('https://api.github.com/repositories', params={'since': random_page})
+        response = requests.get('https://api.github.com/repositories', 
+        params={'since': random_page, 'access_token': TOKEN})
         data = response.json()
         if (response.status_code == 200):
             random_repos = random.sample(data, 10)
@@ -32,5 +36,5 @@ def index(request):
         error = ""
         repo = selected_repos[0]
     #print(repo)
-    print(error)
+    print(TOKEN)
     return render(request, "repos/index.html", {'repo': repo, 'error': error})
