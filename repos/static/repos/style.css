@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+*{
+    box-sizing: 0;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Poppins",sans-serif;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.heading{
+    padding: 1.5rem;
+    text-transform: uppercase;
+}
+.intro{
+    padding: 1rem;
+    padding-top: 0;
+}
+.repogen{
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #DA4453;
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
+    background: linear-gradient(to right, #89216B, #DA4453);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.repogen:hover{
+    opacity: 0.9;
+}
+.info{
+    color: white;
+    font-size: 1.3rem;
+}
+.info b{
+    font-family: "Roboto",sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.info p{
+    padding: 0.5rem;
+}
+.info a{
+    color:whitesmoke;
+    text-decoration: none;
+}
+.info ul{
+    text-align: center;
+}
+/* .info ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.info ul li{
+    list-style: none;
+    padding: 7px;
+}
