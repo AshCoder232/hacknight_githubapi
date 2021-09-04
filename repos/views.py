@@ -16,7 +16,6 @@ def index(request):
         if (response.status_code == 200):
             random_repos = random.sample(data, 10)
             for i in range(0, 10):
-                print(i)
                 r = requests.get(random_repos[i]['url'], headers={'Authorization': f"token {TOKEN}"})
                 d = r.json()
                 if (r.status_code != 200):
